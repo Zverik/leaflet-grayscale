@@ -8,7 +8,7 @@ Just use `L.tileLayer.grayscale(url, options)` instead of `L.tileLayer(url, opti
 
 ## Example
 
-https://zverik.github.com/leaflet-grayscale/
+http://zverik.github.com/leaflet-grayscale/
 
 ## License
 
