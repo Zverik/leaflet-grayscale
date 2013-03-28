@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>B&W TileLayer Test</title>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+<![endif]-->
+<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+<script src="TileLayer.Grayscale.js"></script>
+<style>
+body { margin: 0; }
+#map { height: 100%; }
+</style>
+<script>
+    function init() {
+        var map = L.map('map').setView([25, -4], 3);
+        L.tileLayer.grayscale('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors',
+            maxZoom: 14, minZoom: 2
+        }).addTo(map);
+    }
+</script>
+</head>
+<body onload="javascript:init();">
+<div id="map"></div>
+</body>
+</html>
