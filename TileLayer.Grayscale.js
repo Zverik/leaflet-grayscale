@@ -4,7 +4,11 @@
 
 L.TileLayer.Grayscale = L.TileLayer.extend({
 	options: {
-		enableCanvas: true
+		enableCanvas: true,
+		quotaRed: 3,
+		quotaGreen: 4,
+		quotaBlue: 1,
+		quotaDivider: quotaRed + quotaGreen + quotaBlue,
 	},
 
 	initialize: function (url, options) {
@@ -35,7 +39,7 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
 			var imgd = ctx.getImageData(0, 0, this._layer.options.tileSize, this._layer.options.tileSize);
 			var pix = imgd.data;
 			for (var i = 0, n = pix.length; i < n; i += 4) {
-				pix[i] = pix[i + 1] = pix[i + 2] = (3 * pix[i] + 4 * pix[i + 1] + pix[i + 2]) / 8;
+				pix[i] = pix[i + 1] = pix[i + 2] = (quotaRed * pix[i] + quotaGreen * pix[i + 1] + quotaBlue * pix[i + 2]) / quotaDivider;
 			}
 			ctx.putImageData(imgd, 0, 0);
 			this.removeAttribute("crossorigin");
