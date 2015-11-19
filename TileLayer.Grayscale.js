@@ -8,7 +8,7 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
 		quotaRed: 3,
 		quotaGreen: 4,
 		quotaBlue: 1,
-		quotaDivider: 3+4+1,
+		quotaDivider: quotaRed + quotaGreen + quotaBlue,
 	},
 
 	initialize: function (url, options) {
