@@ -6,6 +6,9 @@ A regular TileLayer with grayscale makeover.
 
 Just use `L.tileLayer.grayscale(url, options)` instead of `L.tileLayer(url, options)`.
 
+I recommend using `fadeAnimation: false` option when creating the map object. Otherwise you
+will see a lot of flickering.
+
 ## Example
 
 https://zverik.github.com/leaflet-grayscale/
