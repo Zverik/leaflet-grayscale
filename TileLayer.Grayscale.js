@@ -14,6 +14,7 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
 	},
 
 	initialize: function (url, options) {
+		options.crossOrigin = true;
 		L.TileLayer.prototype.initialize.call(this, url, options);
 
 		this.on('tileload', function(e) {
