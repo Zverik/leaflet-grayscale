@@ -4,9 +4,9 @@
 
 L.TileLayer.Grayscale = L.TileLayer.extend({
 	options: {
-		quotaRed: 3,
-		quotaGreen: 4,
-		quotaBlue: 1,
+		quotaRed: 21,
+		quotaGreen: 71,
+		quotaBlue: 8,
 		quotaDividerTune: 0,
 		quotaDivider: function() {
 			return this.quotaRed + this.quotaGreen + this.quotaBlue + this.quotaDividerTune;
