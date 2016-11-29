@@ -3,6 +3,16 @@
  */
 
 L.TileLayer.Grayscale = L.TileLayer.extend({
+	options: {
+		quotaRed: 21,
+		quotaGreen: 71,
+		quotaBlue: 8,
+		quotaDividerTune: 0,
+		quotaDivider: function() {
+			return this.quotaRed + this.quotaGreen + this.quotaBlue + this.quotaDividerTune;
+		}
+	},
+
 	initialize: function (url, options) {
 		L.TileLayer.prototype.initialize.call(this, url, options);
 
@@ -21,7 +31,7 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
 		if (img.getAttribute('data-grayscaled'))
 			return;
 
-                img.crossOrigin = '';
+		img.crossOrigin = '';
 		var canvas = document.createElement("canvas");
 		canvas.width = img.width;
 		canvas.height = img.height;
@@ -31,7 +41,7 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
 		var imgd = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		var pix = imgd.data;
 		for (var i = 0, n = pix.length; i < n; i += 4) {
-			pix[i] = pix[i + 1] = pix[i + 2] = (3 * pix[i] + 4 * pix[i + 1] + pix[i + 2]) / 8;
+			pix[i] = pix[i + 1] = pix[i + 2] = (this.options.quotaRed * pix[i] + this.options.quotaGreen * pix[i + 1] + this.options.quotaBlue * pix[i + 2]) / this.options.quotaDivider();
 		}
 		ctx.putImageData(imgd, 0, 0);
 		img.setAttribute('data-grayscaled', true);
