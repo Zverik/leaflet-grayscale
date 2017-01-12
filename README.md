@@ -4,7 +4,7 @@ A regular TileLayer with grayscale makeover.
 
 ## Usage
 
-Just use `L.tileLayer.grayscale(url, options)` instead of `L.tileLayer(url, options)`.
+Just use `L.tileLayer.grayscale(url, options)` instead of `L.tileLayer(url, options)`, also you need to set `crossOrigin: true` on `L.tileLayer` options.
 
 I recommend using `fadeAnimation: false` option when creating the map object. Otherwise you
 will see a lot of flickering.
