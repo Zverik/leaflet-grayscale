@@ -11,7 +11,7 @@ will see a lot of flickering.
 
 ## Example
 
-http://zverik.github.com/leaflet-grayscale/
+https://zverik.github.io/leaflet-grayscale/
 
 ## License
 
